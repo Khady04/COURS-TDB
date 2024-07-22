@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8"><title>nCode | De l'Algo au Javascript</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="nCode%20De%20l'Algo%20au%20Javascript_fichiers/font-awesome.min.css">
+        <link rel="stylesheet" href="nCode%20De%20l'Algo%20au%20Javascript_fichiers/bootstrap.min.css">
+        <link rel="stylesheet" href="nCode%20De%20l'Algo%20au%20Javascript_fichiers/github-markdown.css">
+        <link rel="stylesheet" href="nCode%20De%20l'Algo%20au%20Javascript_fichiers/menu-markdown.css">
+        <script src="nCode%20De%20l'Algo%20au%20Javascript_fichiers/jquery-3.4.1.min.js"></script>
+        <script src="nCode%20De%20l'Algo%20au%20Javascript_fichiers/popper.min.js"></script>
+        <script src="nCode%20De%20l'Algo%20au%20Javascript_fichiers/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="nCode%20De%20l'Algo%20au%20Javascript_fichiers/stackoverflow-dark.min.css">
+        <script src="nCode%20De%20l'Algo%20au%20Javascript_fichiers/highlight.min.js"></script>
+
+        </head><body><div class="container"><div class="markdown-body"><h1 id="1">De l'Algo au Javascript</h1>
+<h2 id="2">Déclaration et utilisation de variables</h2>
+<pre><code class="language-bash hljs"><span class="hljs-comment"># Algo</span>
+Variable a en Entier
+a ← 12</code></pre>
+<pre><code class="language-javascript hljs"><span class="hljs-comment">// Javascript</span>
+<span class="hljs-keyword">var</span> a ;
+a = <span class="hljs-number">12</span> ;</code></pre>
+<pre><code class="language-bash hljs"><span class="hljs-comment"># Algo</span>
+Variable nom en Caractères
+nom ← <span class="hljs-string">"Toto"</span></code></pre>
+<pre><code class="language-javascript hljs"><span class="hljs-comment">// Javascript</span>
+<span class="hljs-keyword">var</span> nom;
+nom = <span class="hljs-string">"Toto"</span>;</code></pre>
+<h2 id="7">Convertir une chaine en valeur numérique</h2>
+<pre><code class="language-javascript hljs"><span class="hljs-comment">// Javascript</span>
+<span class="hljs-keyword">var</span> a = <span class="hljs-string">"12"</span>; 
+<span class="hljs-keyword">var</span> c = <span class="hljs-number">12</span>;
+<span class="hljs-keyword">var</span> b = <span class="hljs-built_in">parseInt</span>(a);</code></pre>
+<h2 id="9">Problème avec la concaténation ou l'addition</h2>
+<pre><code class="language-javascript hljs"><span class="hljs-comment">// Javascript</span>
+<span class="hljs-keyword">var</span> a = <span class="hljs-string">"123"</span>;
+<span class="hljs-keyword">var</span> b = <span class="hljs-string">"45"</span>;
+<span class="hljs-keyword">var</span> c = a+b; <span class="hljs-comment">// c contient "12345"</span></code></pre>
+<pre><code class="language-javascript hljs"><span class="hljs-comment">// Javascript</span>
+<span class="hljs-keyword">var</span> a = <span class="hljs-number">123</span>;
+<span class="hljs-keyword">var</span> b = <span class="hljs-number">45</span>;
+<span class="hljs-keyword">var</span> c = a+b; <span class="hljs-comment">// c contient 168</span></code></pre>
+<pre><code class="language-javascript hljs"><span class="hljs-comment">// Javascript</span>
+<span class="hljs-keyword">var</span> a = <span class="hljs-string">"123"</span>;
+<span class="hljs-keyword">var</span> b = <span class="hljs-string">"45"</span>;
+<span class="hljs-keyword">var</span> c = <span class="hljs-built_in">parseInt</span>(a)+<span class="hljs-built_in">parseInt</span>(b); <span class="hljs-comment">// c contient 168</span></code></pre>
+<p> </p>
+<h2 id="14">Lire et Ecrire</h2>
+<pre><code class="language-bash hljs"><span class="hljs-comment"># Algo</span>
+Variable nom en Caratère
+Ecrire <span class="hljs-string">"Entrez votre nom"</span>
+Lire nom</code></pre>
+<pre><code class="language-javascript hljs"><span class="hljs-comment">// Javascript</span>
+<span class="hljs-keyword">var</span> nom;
+nom = <span class="hljs-title function_">prompt</span>(<span class="hljs-string">"Entrez votre nom"</span>);</code></pre>
+<pre><code class="language-bash hljs"><span class="hljs-comment"># Algo</span>
+Variable a en Entier
+Ecrire <span class="hljs-string">"Entrez un nombre"</span>
+Lire a</code></pre>
+<pre><code class="language-javascript hljs"><span class="hljs-comment">// Javascript</span>
+<span class="hljs-keyword">var</span> a;
+a = <span class="hljs-built_in">parseInt</span>(<span class="hljs-title function_">prompt</span>(<span class="hljs-string">"Entrez un nombre"</span>));</code></pre>
+<pre><code class="language-bash hljs"><span class="hljs-comment"># Algo</span>
+Variable message en Caractère
+message ← <span class="hljs-string">"Bonjour toi"</span>
+Ecrire message</code></pre>
+<pre><code class="language-javascript hljs"><span class="hljs-comment">// Javascript</span>
+<span class="hljs-keyword">var</span> message = <span class="hljs-string">"Bonjour toi"</span>;
+<span class="hljs-title function_">alert</span>(message);</code></pre>
+<p> </p>
+<h2 id="22">Conditions</h2>
+<pre><code class="language-bash hljs"><span class="hljs-comment"># Algo</span>
+Si a&gt;12 Alors
+    Ecrire <span class="hljs-string">"C'est beaucoup"</span>
+Sinon
+    Ecrire <span class="hljs-string">"C'est peu"</span></code></pre>
+<pre><code class="language-javascript hljs"><span class="hljs-comment">// Javascript</span>
+<span class="hljs-keyword">if</span> (a&gt;<span class="hljs-number">12</span>) {
+    <span class="hljs-title function_">alert</span>(<span class="hljs-string">"C'est beaucoup"</span>);
+} 
+<span class="hljs-keyword">else</span> {
+    <span class="hljs-title function_">alert</span>(<span class="hljs-string">"C'est peu"</span>);
+}</code></pre>
+<pre><code class="language-bash hljs"><span class="hljs-comment"># Algo</span>
+Si a&gt;12 Alors
+    Ecrire <span class="hljs-string">"C'est beaucoup"</span>
+SinonSi a&lt;0
+    Ecrire <span class="hljs-string">"C'est très peu"</span>
+Sinon
+    Ecrire <span class="hljs-string">"C'est moyen"</span></code></pre>
+<pre><code class="language-javascript hljs"><span class="hljs-comment">// Javascript</span>
+<span class="hljs-keyword">if</span> (a&gt;<span class="hljs-number">12</span>) {
+    <span class="hljs-title function_">alert</span>(<span class="hljs-string">"C'est beaucoup"</span>);
+} 
+<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a&lt;<span class="hljs-number">0</span>) {
+    <span class="hljs-title function_">alert</span>(<span class="hljs-string">"C'est très peu"</span>);
+}
+<span class="hljs-keyword">else</span> {
+    <span class="hljs-title function_">alert</span>(<span class="hljs-string">"C'est moyen"</span>);
+}</code></pre>
+<blockquote>
+<p>ATTENTION: pour comparer si deux valeurs sont égales, vous devez utiliser <code>==</code></p>
+</blockquote>
+<p>Exemple </p>
+<pre><code class="language-javascript hljs"><span class="hljs-comment">// Javascript</span>
+<span class="hljs-keyword">var</span> a;
+
+a = <span class="hljs-number">12</span>; <span class="hljs-comment">// Affectation</span>
+
+<span class="hljs-keyword">if</span> (a==<span class="hljs-number">7</span>) { <span class="hljs-comment">// Comparaison</span>
+    <span class="hljs-title function_">alert</span>(<span class="hljs-string">"Bien essayé !"</span>);
+}
+<span class="hljs-keyword">else</span> {
+    <span class="hljs-title function_">alert</span>(<span class="hljs-string">"Dommage !"</span>);
+}</code></pre>
+<h2 id="30">Exécuter le code</h2>
+<ul>
+<li>Pour Firefox : cliquer sur les touches <code>MAJ</code> + <code>F4</code> pour lancer l'ardoise Javascript. Saisir votre code javascript puis touches <code>CTRL</code> + <code>R</code> pour l'exécuter.</li>
+<li>Pour Chrome, installer l'extension <a href="https://chrome.google.com/webstore/detail/scratch-js/alploljligeomonipppgaahpkenfnfkn">ScratchJS</a>. Cliquer sur <code>F12</code>,  puis sur l'onglet <code>ScratchJS</code> du panneau qui s'ouvre (panneau appelé outils développeurs/console). Saisir votre code javascript puis cliquer sur le bouton <code>Run</code> (ou touches <code>Ctrl</code> + <code>Entrée</code>).</li>
+</ul>
+<!-- 
+## Structure d'une page de test
+Fichier exemple1.html
+```html
+<script>
+    alert("Bonjour à toi");
+</script>
+```
+--></div><div class="menu-markdown"><img src="nCode%20De%20l'Algo%20au%20Javascript_fichiers/menu.png"><div data-id="1" class="titre">De l'Algo au Javascript</div><div data-id="2">Déclaration et utilisation de variables</div><div data-id="7">Convertir une chaine en valeur numérique</div><div data-id="9">Problème avec la concaténation ou l'addition</div><div data-id="14">Lire et Ecrire</div><div data-id="22">Conditions</div><div data-id="30">Exécuter le code</div></div></div><script>hljs.highlightAll();</script><script src="nCode%20De%20l'Algo%20au%20Javascript_fichiers/menu-markdown.js"></script><script>document.title = "nCode | " + document.querySelector("h1").textContent;</script></body></html>

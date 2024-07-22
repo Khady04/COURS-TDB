@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8"><title>nCode | FR-ALGO</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="nCode%20FR-ALGO_fichiers/font-awesome.min.css">
+        <link rel="stylesheet" href="nCode%20FR-ALGO_fichiers/bootstrap.min.css">
+        <link rel="stylesheet" href="nCode%20FR-ALGO_fichiers/github-markdown.css">
+        <link rel="stylesheet" href="nCode%20FR-ALGO_fichiers/menu-markdown.css">
+        <script src="nCode%20FR-ALGO_fichiers/jquery-3.4.1.min.js"></script>
+        <script src="nCode%20FR-ALGO_fichiers/popper.min.js"></script>
+        <script src="nCode%20FR-ALGO_fichiers/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="nCode%20FR-ALGO_fichiers/stackoverflow-dark.min.css">
+        <script src="nCode%20FR-ALGO_fichiers/highlight.min.js"></script>
+
+        </head><body><div class="container"><div class="markdown-body"><h1 id="1">FR-ALGO</h1>
+<p><strong>FR-ALGO</strong> (prononcé <em>F-R-ALGO</em>) est un interpréteur pour le pseudo-langage de programmation <strong>ALGO</strong>.</p>
+<h2 id="3">Installation</h2>
+<p>Avant d'installer <strong>FR-ALGO</strong>, vérifiez que <strong>python</strong> version 3.10 ou plus et <strong>pipx</strong> sont installés sur votre système :</p>
+<pre><code class="language-shell hljs"><span class="hljs-meta prompt_">$ </span><span class="language-bash">python --version</span>
+Python 3.12.3
+<span class="hljs-meta prompt_">$ </span><span class="language-bash"><span class="hljs-built_in">which</span> pipx</span>
+/usr/bin/pipx</code></pre>
+<p>Si tout est OK passez à l'étape suivante, sinon installez les dépendances manquantes.</p>
+<p>Téléchargez : <a target="_blank" href="https://ncode.amorce.org/ressources/Pool/TB_DEV/Accueil_Ecrire_algorithme_1/fr-algo-0.11.2b7.tar.gz">FR-ALGO</a></p>
+<p>Puis :</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">pipx install ./fr-algo-0.11.2b7.tar.gz</span></code></pre>
+<p>Dans le cas où une version de <strong>FR-ALGO</strong> serait déjà présente sur votre système :</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">pipx install ./fr-algo-0.11.2b7.tar.gz --force</span></code></pre>
+<p>Si nécessaire, <strong>fermer et rouvrir votre session</strong>.</p>
+<h2 id="13">Utilisation</h2>
+<h3 id="14">fralgo</h3>
+<p>Ce programme en ligne de commande permet d'exécuter un programme écrit en <strong>ALGO</strong> préalablement enregistré dans un fichier.</p>
+<p><code>fralgo &lt;fichier&gt;</code></p>
+<p>où <code>&lt;fichier&gt;</code> est un fichier contenant un programme écrit en <strong>ALGO</strong>.</p>
+<h4 id="18">Exemple</h4>
+<pre><code class="hljs language-java">Début
+  Ecrire <span class="hljs-string">"Bonjour le monde !"</span>
+Fin</code></pre>
+<p>Pour exécuter le programme ci-dessus enregistré dans le fichier <code>bonjour.algo</code>, il suffit d'entrer cette commande dans un terminal :</p>
+<p><code>$ fralgo bonjour.algo</code></p>
+<p>Après un appui sur la touche <kbd>Entrée</kbd>, nous obtenons :</p>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">fralgo bonjour.algo</span>
+Bonjour le monde !
+<span class="hljs-meta prompt_">$</span></code></pre>
+<h3 id="24">fralgorepl</h3>
+<p>Ce programme est un <strong>REPL</strong> (<strong>R</strong>ead-<strong>E</strong>val-<strong>P</strong>rint-<strong>L</strong>oop), en français : <strong>boucle de lecture, d'évaluation et d'affichage</strong>.
+C'est un <strong>environnement interactif</strong> qui permet d'exécuter des expressions écrites en <strong>ALGO</strong>.</p>
+<p>Pour charger <strong>l'environnement interactif</strong>, entrer la commande suivante :</p>
+<pre><code class="hljs language-ruby"><span class="hljs-variable">$ </span>fralgorepl</code></pre>
+<p>Une invite de commande est alors affichée...</p>
+<pre><code class="hljs language-markdown">$ fralgorepl
+ <span class="hljs-strong">____</span><span class="hljs-strong">___ __</span><span class="hljs-strong">____</span>        <span class="hljs-strong">____</span><span class="hljs-strong">___ __</span><span class="hljs-strong">___   __</span><span class="hljs-strong">____</span>_ <span class="hljs-strong">____</span><span class="hljs-strong">___
+|    __</span><span class="hljs-emphasis">_|   _</span>_ \<span class="hljs-strong">____</span><span class="hljs-strong">__|   _   |     |<span class="hljs-emphasis">_|     _</span><span class="hljs-emphasis">_|       |
+|    _</span>__</span>|      <span class="language-xml">&lt;______|       |       |    |  |   -   |
+|___|   |___|__|      |___|___|_______|_______|_______|
+|A|L|G|O|R|I|T|H|M|E|S|         fr-v100 0.11.2.beta.7mg
+
+(c) 2024 Stéphane MEYER (Teegre)
+
+Bonjour, Teegre !
+En attente de vos instructions.
+
+:::</span></code></pre>
+<p>... Et l'on peut entrer n'importe quelle expression en <strong>ALGO</strong> qui sera exécutée après un appui sur la touche <kbd>Entrée</kbd></p>
+<pre><code class="hljs language-markdown">$ fralgorepl
+ <span class="hljs-strong">____</span><span class="hljs-strong">___ __</span><span class="hljs-strong">____</span>        <span class="hljs-strong">____</span><span class="hljs-strong">___ __</span><span class="hljs-strong">___   __</span><span class="hljs-strong">____</span>_ <span class="hljs-strong">____</span><span class="hljs-strong">___
+|    __</span><span class="hljs-emphasis">_|   _</span>_ \<span class="hljs-strong">____</span><span class="hljs-strong">__|   _   |     |<span class="hljs-emphasis">_|     _</span><span class="hljs-emphasis">_|       |
+|    _</span>__</span>|      <span class="language-xml">&lt;______|       |       |    |  |   -   |
+|___|   |___|__|      |___|___|_______|_______|_______|
+|A|L|G|O|R|I|T|H|M|E|S|         fr-v100 0.11.2.beta.7mg
+
+(c) 2024 Stéphane MEYER (Teegre)
+
+Bonjour, Teegre !
+En attente de vos instructions.
+
+::: 1 + 1
+--- 2
+::: Ecrire "Bonjour le monde !"
+Bonjour le monde !</span></code></pre>
+<p>Pour annuler une saisie en cours, appuyer sur <kbd>CTRL</kbd>+<kbd>c</kbd>.</p>
+<p>Pour réinitialiser <strong>l'environnement interactif</strong>, taper <code>REINIT</code>.</p>
+<p>Il est possible de naviguer dans l'historique avec les touches <kbd>↑</kbd> et <kbd>↓</kbd>
+et d'effectuer une recherche avec <kbd>CTRL</kbd>+<kbd>r</kbd>.</p>
+<p>Pour quitter, appuyer sur <kbd>CTRL</kbd>+<kbd>d</kbd>.</p>
+<h2 id="36">Différences entre le cours et FR-ALGO</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Cours</th>
+<th style="text-align: center;">FR-ALGO</th>
+<th style="text-align: left;">Description / Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">NON a</td>
+<td style="text-align: center;">NON(a)</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;">Len(a)</td>
+<td style="text-align: center;">Longueur(a)</td>
+<td style="text-align: left;">Longueur("ABC") = 3</td>
+</tr>
+<tr>
+<td style="text-align: left;">-</td>
+<td style="text-align: center;">Longueur(t)</td>
+<td style="text-align: left;">Retourne la taille d'une Table</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mid()</td>
+<td style="text-align: center;">Extraire()</td>
+<td style="text-align: left;">Extraire("ABC", 2, 2) = "BC"</td>
+</tr>
+<tr>
+<td style="text-align: left;">Left()</td>
+<td style="text-align: center;">Gauche()</td>
+<td style="text-align: left;">Gauche("ABCDEF", 3) = "ABC"</td>
+</tr>
+<tr>
+<td style="text-align: left;">Right()</td>
+<td style="text-align: center;">Droite()</td>
+<td style="text-align: left;">Droite("ABCDEF", 3) = "DEF"</td>
+</tr>
+<tr>
+<td style="text-align: left;">Chr()</td>
+<td style="text-align: center;">Car()</td>
+<td style="text-align: left;">Car(65) =  "A"</td>
+</tr>
+<tr>
+<td style="text-align: left;">Asc()</td>
+<td style="text-align: center;">CodeCar()</td>
+<td style="text-align: left;">CodeCar("A") = 65</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mod(a, b)</td>
+<td style="text-align: center;">a % b</td>
+<td style="text-align: left;">4 % 3 = 1 (Reste de la division)</td>
+</tr>
+<tr>
+<td style="text-align: left;">a Dp b</td>
+<td style="text-align: center;">a <strong>DP</strong> b</td>
+<td style="text-align: left;">4 DP 2 = VRAI (Divisible Par)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Alea()</td>
+<td style="text-align: center;"><strong>Aléa</strong>()</td>
+<td style="text-align: left;">Retourne un <code>Numérique</code> entre 0 et 1.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ent(a)</td>
+<td style="text-align: center;">Entier(a)</td>
+<td style="text-align: left;">Entier(1.234) = 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Cnum(a)</td>
+<td style="text-align: center;">Entier(a)</td>
+<td style="text-align: left;">Entier("12") = 12</td>
+</tr>
+<tr>
+<td style="text-align: left;">Cnum(a)</td>
+<td style="text-align: center;">Numérique(a)</td>
+<td style="text-align: left;">Numérique(12) = 12.0, Numérique("12.34") = 12.34</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ccar(a)</td>
+<td style="text-align: center;">Chaîne(a)</td>
+<td style="text-align: left;">Chaîne(12) = "12"</td>
+</tr>
+<tr>
+<td style="text-align: left;">-</td>
+<td style="text-align: center;">Taille(t)</td>
+<td style="text-align: left;">Taille d'un tableau ou d'une table</td>
+</tr>
+<tr>
+<td style="text-align: left;">Caractères</td>
+<td style="text-align: center;">Chaîne</td>
+<td style="text-align: left;">Variable c en Chaîne</td>
+</tr>
+</tbody>
+</table>
+<h2 id="38">Syntaxe</h2>
+<p>Elle doit être scrupuleusement respectée sous peine d'avoir des erreurs lors de l'exécution des programmes !</p>
+<p>Les <u>mots reservés</u> sont <u>sensibles à la casse</u> et aux <u>accents</u>, par exemple :</p>
+<p><code>Debut</code>, <code>debut</code>, <code>Début</code> seront traîtés différemment par l'interpréteur.
+En effet, si <code>Début</code> est un mot reservé indiquant le commencement d'un programme <strong>ALGO</strong>, <code>Debut</code> et <code>debut</code> sont considérés comme des <u>variables</u>.</p>
+<p>Il est à noter que <strong>chaque instruction d'un programme ALGO</strong>, <strong>doit être suivie d'un retour à la ligne</strong> et les éventuels sauts
+de ligne après le mot réservé <code>Fin</code> provoquent une erreur de syntaxe.</p>
+<h3 id="43">Commentaires</h3>
+<p>Il est possible d'ajouter des commentaires comme suit :</p>
+<pre><code class="hljs language-perl"><span class="hljs-comment"># Ceci est commentaire.</span>
+Variable c en Chaî<span class="hljs-keyword">ne</span>
+<span class="hljs-comment"># Ceci est un autre commentaire.</span>
+Début
+  <span class="hljs-comment"># Encore un commentaire.</span>
+  Ecrire <span class="hljs-string">"Bonjour le monde !"</span>
+Fin</code></pre>
+<p><strong>Les commentaires en fin de ligne ne sont pas acceptés.</strong></p>
+<h2 id="47">Types de données</h2>
+<h3 id="48">Booléen</h3>
+<p><code>VRAI ou FAUX</code></p>
+<h3 id="50">Entier</h3>
+<p><code>1</code>, <code>-2</code>, <code>3</code></p>
+<h3 id="52">Numérique</h3>
+<p><code>1.2</code>, <code>-3.4</code>, <code>5.67</code></p>
+<h3 id="54">Chaîne</h3>
+<p><code>"Bonjour"</code></p>
+<h3 id="56">Caractère</h3>
+<p>Partez du principe que toutes les variables de type <strong>Caractères</strong> dans le cours
+sont de type <code>Chaîne</code> en <strong>FR-ALGO</strong>.</p>
+<p>En <strong>FR-ALGO</strong>, une variable de type <strong>Caractère</strong> (au singulier) correspond à 1 caractère, par exemple : <code>"A"</code></p>
+<p>Toutefois, on peut spécifier une longueur comme suit : <code>Caractère*10</code></p>
+<p>Attention, si l'on affecte une chaîne de longueur différente, soit la
+ valeur est tronquée, soit des espaces sont ajoutés à la fin.</p>
+<p>En d'autres termes, une variable de type Caractère aura toujours la même longueur, peu importe sa valeur.</p>
+<pre><code class="hljs language-r">Variable <span class="hljs-built_in">c</span> en Caractère<span class="hljs-operator">*</span><span class="hljs-number">5</span>
+<span class="hljs-built_in">c</span> <span class="hljs-operator">&lt;-</span> <span class="hljs-string">"ABC"</span>
+Longueur<span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span>
+<span class="hljs-comment"># VRAI</span>
+<span class="hljs-comment"># c = "ABC  "</span>
+<span class="hljs-built_in">c</span> <span class="hljs-operator">&lt;-</span> <span class="hljs-string">"ABCDEF"</span>
+Longueur<span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-number">5</span>
+<span class="hljs-comment"># VRAI</span>
+<span class="hljs-comment"># c = "ABCDE"</span></code></pre>
+<pre><code class="hljs language-makefile">Variable a en Caractère
+a &lt;- <span class="hljs-string">""</span>
+Longueur(a)
+<span class="hljs-comment"># 1</span>
+a = <span class="hljs-string">""</span>
+<span class="hljs-comment"># FAUX</span></code></pre>
+<h2 id="64">Variables</h2>
+<h3 id="65">Déclaration</h3>
+<pre><code class="hljs language-less"><span class="hljs-selector-tag">Variable</span> <span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">en</span> <span class="hljs-selector-tag">Entier</span>
+<span class="hljs-selector-tag">Variables</span> <span class="hljs-selector-tag">c1</span>, <span class="hljs-selector-tag">c2</span>, <span class="hljs-selector-tag">c3</span> <span class="hljs-selector-tag">en</span> <span class="hljs-selector-tag">Cha</span>î<span class="hljs-selector-tag">ne</span></code></pre>
+<h3 id="67">Affectation</h3>
+<pre><code class="hljs language-apache"><span class="hljs-attribute">a</span> &lt;- (<span class="hljs-number">12</span> * <span class="hljs-number">2</span> / <span class="hljs-number">4</span>) + <span class="hljs-number">1</span>
+<span class="hljs-attribute">c1</span> &lt;- <span class="hljs-string">"Chaîne1"</span>
+<span class="hljs-attribute">c2</span> &lt;- <span class="hljs-string">"Chaîne2"</span>
+<span class="hljs-attribute">c3</span> &lt;- c1 &amp; <span class="hljs-string">" et "</span> &amp; c2
+<span class="hljs-attribute">a</span> = <span class="hljs-number">7</span>
+<span class="hljs-comment"># VRAI</span>
+<span class="hljs-attribute">c3</span> = <span class="hljs-string">"Chaîne1 et Chaîne2"</span>
+<span class="hljs-comment"># VRAI</span></code></pre>
+<h2 id="69">Tableaux</h2>
+<h3 id="70">Déclaration</h3>
+<pre><code class="hljs language-apache"><span class="hljs-attribute">Tableau</span> t[<span class="hljs-number">3</span>] en Entier
+<span class="hljs-comment"># t[3] désigne un tableau pouvant contenir 4 éléments (numérotés de 0 à 3).</span>
+
+<span class="hljs-attribute">Tableau</span> u[]
+<span class="hljs-comment"># u[] désigne un tableau qui sera dimensionné ultérieurement (voir plus bas).</span>
+
+<span class="hljs-attribute">Tableaux</span> v[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>], w[<span class="hljs-number">7</span>,<span class="hljs-number">7</span>,<span class="hljs-number">7</span>] en Entier</code></pre>
+<h3 id="72">Affectation</h3>
+<pre><code class="hljs language-python-repl">t[0] &lt;- 1
+t[1] &lt;- 2
+t[2] &lt;- 3
+t[3] &lt;- 4
+# Pour des tableaux à une dimension, il est possible d'affecter des valeurs de type
+# Entier, Chaîne, Numérique ou Caractère comme suit :
+t[] &lt;- 1, 2, 3, 4
+v[0,0] &lt;- 1
+v[0,1] &lt;- 2
+v[1,0] &lt;- 3
+v[1,1] &lt;- 4
+<span class="hljs-meta prompt_">...</span>
+w[0,0,0] &lt;- 1
+<span class="hljs-meta prompt_">...</span>
+w[7,7,7] &lt;- 512</code></pre>
+<h3 id="74">Dimensionnement</h3>
+<p><code>Redim u[3]</code></p>
+<h3 id="76">Affectation d'un tableau à un autre tableau de même dimension :</h3>
+<pre><code class="hljs language-apache"><span class="hljs-attribute">u</span> &lt;- t
+<span class="hljs-attribute">u</span> = t
+<span class="hljs-comment"># VRAI</span>
+<span class="hljs-attribute">u</span>[<span class="hljs-number">3</span>] = t[<span class="hljs-number">3</span>]
+<span class="hljs-comment"># VRAI</span>
+<span class="hljs-attribute">u</span>[<span class="hljs-number">3</span>] = <span class="hljs-number">4</span>
+<span class="hljs-comment"># VRAI</span></code></pre>
+<h2 id="78">Tables</h2>
+<p>Une <code>Table</code> est un <strong>tableau associatif</strong>.</p>
+<p>Plutôt que d'utiliser des <strong>index</strong> comme dans un <code>Tableau</code>, le type <code>Table</code> utilise des <strong>clefs</strong> qui seront associées à des <strong>valeurs</strong>.</p>
+<h3 id="81">Déclaration</h3>
+<pre><code class="hljs language-less"><span class="hljs-selector-tag">Table</span> <span class="hljs-selector-tag">t</span>
+  <span class="hljs-selector-tag">Clef</span> <span class="hljs-selector-tag">en</span> <span class="hljs-selector-tag">Cha</span>î<span class="hljs-selector-tag">ne</span>
+  <span class="hljs-selector-tag">Valeur</span> <span class="hljs-selector-tag">en</span> <span class="hljs-selector-tag">Entier</span>
+<span class="hljs-selector-tag">FinTable</span></code></pre>
+<h3 id="83">Affectation</h3>
+<pre><code class="hljs language-apache"><span class="hljs-attribute">t</span>[<span class="hljs-string">"A"</span>] &lt;- <span class="hljs-number">65</span>
+<span class="hljs-attribute">t</span>[<span class="hljs-string">"B"</span>] &lt;- <span class="hljs-number">66</span>
+<span class="hljs-attribute">t</span>[<span class="hljs-string">"A"</span>] = <span class="hljs-number">65</span>
+<span class="hljs-comment"># VRAI</span></code></pre>
+<h2 id="85">Structures</h2>
+<h3 id="86">Déclaration</h3>
+<pre><code class="hljs language-perl">Structure Personne
+  prenom en Chaî<span class="hljs-keyword">ne</span>
+  nom en Chaî<span class="hljs-keyword">ne</span>
+FinStructure
+
+<span class="hljs-comment"># Déclaration d'une variable de type Personne</span>
+Variables p1, p2 en Personne</code></pre>
+<h3 id="88">Affectation</h3>
+<pre><code class="hljs language-makefile">p1.prenom &lt;- <span class="hljs-string">"Nicole"</span>
+p1.nom &lt;- <span class="hljs-string">"Croisille"</span>
+<span class="hljs-comment"># ou</span>
+p1 &lt;- <span class="hljs-string">"Nicole"</span>, <span class="hljs-string">"Croisille"</span>
+<span class="hljs-comment"># aussi</span>
+p2 &lt;- p1
+p2 = p1
+<span class="hljs-comment"># VRAI</span></code></pre>
+<h2 id="90">Opérateurs</h2>
+<h3 id="91">Opérations</h3>
+<pre><code class="hljs language-less"># <span class="hljs-selector-tag">Addition</span>
+<span class="hljs-selector-tag">a</span> + <span class="hljs-selector-tag">b</span>
+
+# <span class="hljs-selector-tag">Soustraction</span>
+<span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">-</span> <span class="hljs-selector-tag">b</span>
+
+# <span class="hljs-selector-tag">Multiplication</span>
+<span class="hljs-selector-tag">a</span> * <span class="hljs-selector-tag">b</span>
+
+# <span class="hljs-selector-tag">Division</span>
+<span class="hljs-selector-tag">a</span> / <span class="hljs-selector-tag">b</span>
+# <span class="hljs-selector-tag">Note</span> : <span class="hljs-selector-tag">si</span> <span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">et</span> <span class="hljs-selector-tag">b</span> <span class="hljs-selector-tag">sont</span> <span class="hljs-selector-tag">de</span> <span class="hljs-selector-tag">type</span> <span class="hljs-selector-tag">Entier</span>, <span class="hljs-selector-tag">le</span> <span class="hljs-selector-tag">quotient</span> <span class="hljs-selector-tag">sera</span> é<span class="hljs-selector-tag">galement</span> <span class="hljs-selector-tag">de</span> <span class="hljs-selector-tag">type</span> <span class="hljs-selector-tag">Entier</span>.
+
+# <span class="hljs-selector-tag">Modulo</span> (reste de la division)
+<span class="hljs-selector-tag">a</span> % <span class="hljs-selector-tag">b</span>
+
+# <span class="hljs-selector-tag">Divisible</span> <span class="hljs-selector-tag">par</span> (retourne VRAI si a est divisible par b)
+<span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">DP</span> <span class="hljs-selector-tag">b</span>
+
+# <span class="hljs-selector-tag">Puissance</span>
+<span class="hljs-selector-tag">a</span> ^ <span class="hljs-selector-tag">b</span>
+
+# <span class="hljs-selector-tag">Concat</span>é<span class="hljs-selector-tag">nation</span> <span class="hljs-selector-tag">de</span> <span class="hljs-selector-tag">cha</span>î<span class="hljs-selector-tag">nes</span> <span class="hljs-selector-tag">de</span> <span class="hljs-selector-tag">caract</span>è<span class="hljs-selector-tag">res</span>
+<span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">&amp;</span> <span class="hljs-selector-tag">b</span></code></pre>
+<h3 id="93">Comparaisons</h3>
+<pre><code class="hljs language-makefile"><span class="hljs-comment"># Egal</span>
+a = b
+
+<span class="hljs-comment"># Différent</span>
+a &lt;&gt; b
+
+<span class="hljs-comment"># Supérieur</span>
+ a &gt; b
+
+<span class="hljs-comment"># Supérieur ou égal</span>
+a &gt;= b
+
+<span class="hljs-comment"># Inférieur</span>
+a &lt; b
+
+<span class="hljs-comment"># Inférieur ou égal</span>
+a &lt;= b</code></pre>
+<h3 id="95">Opérateurs binaires</h3>
+<pre><code class="hljs language-less"># <span class="hljs-selector-tag">Et</span>
+<span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">ET</span> <span class="hljs-selector-tag">b</span>
+
+# <span class="hljs-selector-tag">Ou</span>
+<span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">OU</span> <span class="hljs-selector-tag">b</span>
+
+# <span class="hljs-selector-tag">Ou</span> <span class="hljs-selector-tag">exclusif</span>
+<span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">OUX</span> <span class="hljs-selector-tag">b</span>
+
+# <span class="hljs-selector-tag">Pas</span>
+<span class="hljs-selector-tag">NON</span>(x)
+# <span class="hljs-selector-tag">Si</span> <span class="hljs-selector-tag">x</span> <span class="hljs-selector-tag">est</span> <span class="hljs-selector-tag">FAUX</span>, <span class="hljs-selector-tag">NON</span>(x) <span class="hljs-selector-tag">retourne</span> <span class="hljs-selector-tag">VRAI</span> <span class="hljs-selector-tag">et</span> <span class="hljs-selector-tag">vice</span> <span class="hljs-selector-tag">et</span> <span class="hljs-selector-tag">versa</span>.</code></pre>
+<h2 id="97">Lire et Ecrire</h2>
+<pre><code class="hljs language-makefile">Variable n en Entier
+Lire n
+<span class="hljs-comment"># Affecte la valeur entrée par l'utilisateur à la variable 'n'.</span>
+
+Ecrire n
+<span class="hljs-comment"># Affiche la valeur de n.</span>
+
+Ecrire n, x
+<span class="hljs-comment"># Affiche les valeurs de n et de x séparées par un espace.</span>
+<span class="hljs-comment"># Par exemple :</span>
+<span class="hljs-comment"># 74 19</span>
+
+Ecrire n
+Ecrire x
+<span class="hljs-comment"># 74</span>
+<span class="hljs-comment"># 19</span>
+
+Ecrire n \
+Ecrire x
+<span class="hljs-comment"># 7419</span>
+<span class="hljs-comment"># Le caractère '\' indique à la fonction Ecrire de ne pas </span>
+<span class="hljs-comment"># passer à la ligne suivante, et lors du second appel à</span>
+<span class="hljs-comment"># Ecrire, la valeur de x est affichée directement après </span>
+<span class="hljs-comment"># celle de n.</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># Application :</span>
+Ecrire <span class="hljs-string">"Entrer un nombre : "</span> \
+Lire n
+<span class="hljs-comment"># Entrer un nombre : _</span>
+<span class="hljs-comment"># _ indique la position du curseur.</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># Note :</span>
+<span class="hljs-comment"># La fonction Lire essayera de convertir la valeur d'entrée (toujours</span>
+<span class="hljs-comment"># de type Chaîne) en le type attendu par la variable donnée en paramètre.</span>
+<span class="hljs-comment"># Par exemple :</span>
+Variable n en Entier
+Lire n
+<span class="hljs-comment"># Valeur entrée par l'utilisateur = 12</span>
+n = 12
+<span class="hljs-comment"># VRAI</span>
+<span class="hljs-comment"># Si la conversion de type échoue, une erreur est générée :</span>
+Lire n
+<span class="hljs-comment"># Valeur entrée par l'utilisateur = 12.34</span>
+*** Type Entier attendu</code></pre>
+<h2 id="99">Tests</h2>
+<pre><code class="hljs language-apache"><span class="hljs-attribute">Variable</span> temperature en Entier
+
+<span class="hljs-attribute">Ecrire</span> <span class="hljs-string">"Température de l'eau ?"</span>
+<span class="hljs-attribute">Lire</span> temperature
+
+<span class="hljs-attribute">Si</span> temperature &lt;= <span class="hljs-number">0</span> Alors
+  <span class="hljs-attribute">Ecrire</span> <span class="hljs-string">"C'est de la glace"</span>
+<span class="hljs-attribute">SinonSi</span> temperature &lt; <span class="hljs-number">100</span> Alors
+  <span class="hljs-attribute">Ecrire</span> <span class="hljs-string">"C'est de l'eau"</span>
+<span class="hljs-attribute">Sinon</span>
+  <span class="hljs-attribute">Ecrire</span> <span class="hljs-string">"C'est de la vapeur"</span>
+<span class="hljs-attribute">FinSi</span></code></pre>
+<h2 id="101">Boucles</h2>
+<h3 id="102">TantQue</h3>
+<pre><code class="hljs language-apache"><span class="hljs-attribute">Variable</span> i en Entier
+<span class="hljs-attribute">i</span> &lt;- <span class="hljs-number">1</span>
+
+<span class="hljs-attribute">TantQue</span> i &lt; <span class="hljs-number">6</span>
+  <span class="hljs-attribute">Ecrire</span> i
+  <span class="hljs-attribute">i</span> &lt;- i + <span class="hljs-number">1</span>
+<span class="hljs-attribute">FinTantQue</span>
+<span class="hljs-comment"># 1</span>
+<span class="hljs-comment"># 2</span>
+<span class="hljs-comment"># 3</span>
+<span class="hljs-comment"># 4</span>
+<span class="hljs-comment"># 5</span></code></pre>
+<h3 id="104">Pour</h3>
+<pre><code class="hljs language-apache"><span class="hljs-attribute">Variable</span> i en Entier
+
+<span class="hljs-attribute">Pour</span> i &lt;- <span class="hljs-number">1</span> à <span class="hljs-number">5</span>
+  <span class="hljs-attribute">Ecrire</span> i
+<span class="hljs-attribute">i</span> Suivant
+<span class="hljs-comment"># 1</span>
+<span class="hljs-comment"># 2</span>
+<span class="hljs-comment"># 3</span>
+<span class="hljs-comment"># 4</span>
+<span class="hljs-comment"># 5</span>
+
+<span class="hljs-attribute">Pour</span> i &lt;- <span class="hljs-number">1</span> à <span class="hljs-number">10</span> Pas <span class="hljs-number">2</span>
+  <span class="hljs-attribute">Ecrire</span> i
+<span class="hljs-attribute">i</span> Suivant
+<span class="hljs-comment"># 1</span>
+<span class="hljs-comment"># 3</span>
+<span class="hljs-comment"># 5</span>
+<span class="hljs-comment"># 7</span>
+<span class="hljs-comment"># 9</span>
+
+<span class="hljs-attribute">Pour</span> i &lt;- <span class="hljs-number">10</span> à <span class="hljs-number">1</span> Pas -<span class="hljs-number">2</span>
+  <span class="hljs-attribute">Ecrire</span> i
+<span class="hljs-attribute">i</span> Suivant
+<span class="hljs-comment"># 10</span>
+<span class="hljs-comment"># 8</span>
+<span class="hljs-comment"># 6</span>
+<span class="hljs-comment"># 4</span>
+<span class="hljs-comment"># 2</span></code></pre>
+<h2 id="106">Fonctions prédéfinies</h2>
+<h3 id="107">Manipulation de chaînes de caractères</h3>
+<pre><code class="hljs language-apache"><span class="hljs-comment"># 'Longueur' renvoie la longueur d'une chaîne de caractères.</span>
+<span class="hljs-attribute">Longueur</span>(<span class="hljs-string">"ABC"</span>)
+<span class="hljs-comment"># 3</span>
+
+<span class="hljs-comment"># 'Extraire' renvoie une sous-chaîne contenue dans une chaîne selon un</span>
+<span class="hljs-comment"># index et une longueur donnés.</span>
+<span class="hljs-attribute">Extraire</span>(<span class="hljs-string">"Carte de crédit"</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>)
+<span class="hljs-comment"># Carte</span>
+
+<span class="hljs-comment"># 'Gauche' renvoie la sous-chaîne d'une longueur donnée à partir du</span>
+<span class="hljs-comment"># début d'une chaîne.</span>
+<span class="hljs-attribute">Gauche</span>(<span class="hljs-string">"Carte de crédit"</span>, <span class="hljs-number">5</span>)
+<span class="hljs-comment"># Carte</span>
+
+<span class="hljs-comment"># 'Droite' renvoie la sous-chaîne d'une longueur donnée à partir de</span>
+<span class="hljs-comment"># la fin d'une chaîne.</span>
+<span class="hljs-attribute">Droite</span>(<span class="hljs-string">"Carte de crédit"</span>, <span class="hljs-number">6</span>)
+<span class="hljs-comment"># crédit</span>
+
+<span class="hljs-comment"># 'Trouve' renvoie l'index d'une sous-chaîne dans une chaîne.</span>
+<span class="hljs-attribute">Trouve</span>(<span class="hljs-string">"Carte de crédit"</span>, <span class="hljs-string">"crédit"</span>)
+<span class="hljs-comment"># 10</span>
+
+<span class="hljs-comment"># 'CodeCar' retourne le code ASCII du caractère donné en paramètre :</span>
+<span class="hljs-attribute">CodeCar</span>(<span class="hljs-string">"A"</span>)
+<span class="hljs-comment"># 65</span>
+
+<span class="hljs-comment"># Car retourne le caractère correspondant au code ASCII donné en paramètre :</span>
+<span class="hljs-attribute">Car</span>(<span class="hljs-number">65</span>)
+<span class="hljs-comment"># A</span></code></pre>
+<h3 id="109">Lecture / Ecriture de fichiers texte</h3>
+<pre><code class="hljs language-apache"><span class="hljs-comment"># Lecture simple d'un fichier contenant les lignes suivantes :</span>
+<span class="hljs-comment"># Ligne 1</span>
+<span class="hljs-comment"># Ligne 2</span>
+<span class="hljs-comment"># Ligne 3</span>
+
+<span class="hljs-attribute">Variable</span> tampon en Chaîne
+<span class="hljs-comment"># Ouverture du fichier sur le 'canal' 1 en mode lecture.</span>
+<span class="hljs-attribute">Ouvrir</span> <span class="hljs-string">"fichier.txt"</span> sur <span class="hljs-number">1</span> en Lecture
+<span class="hljs-comment"># Tant que la fin du fichier (FDF(1)) n'est pas atteinte...</span>
+<span class="hljs-attribute">TantQue</span> NON(FDF(<span class="hljs-number">1</span>))
+  <span class="hljs-comment"># ... on lit une ligne dans le fichier ouvert sur le 'canal' 1</span>
+  <span class="hljs-comment"># que l'on affecte à la variable 'tampon' de type Chaîne.</span>
+  <span class="hljs-attribute">LireFichier</span> <span class="hljs-number">1</span>, tampon
+  <span class="hljs-comment"># On affiche la ligne lue à l'écran.</span>
+  <span class="hljs-attribute">Ecrire</span> tampon
+<span class="hljs-attribute">FinTantQue</span>
+<span class="hljs-comment"># Fermeture du fichier ouvert sur le 'canal' 1</span>
+<span class="hljs-attribute">Fermer</span> <span class="hljs-number">1</span>
+
+<span class="hljs-comment"># 10 'canaux' étant disponibles, il est possible d'ouvrir</span>
+<span class="hljs-comment"># 10 fichiers simultanément.</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># La fonction FDF retourne VRAI si la fin du fichier est atteinte sur</span>
+<span class="hljs-comment"># le 'canal' spécifié en paramètre.</span>
+<span class="hljs-comment"># Elle retourne FAUX dans le cas contraire.</span>
+
+<span class="hljs-comment"># Modes d'ouverture :</span>
+<span class="hljs-comment"># * Lecture permet de lire un fichier.</span>
+<span class="hljs-comment"># * Ecriture permet d'écrire dans un fichier. Dans ce mode le contenu</span>
+<span class="hljs-comment"># du fichier est préalablement effacé si le fichier existe, sinon le</span>
+<span class="hljs-comment"># fichier est créé.</span>
+<span class="hljs-comment"># * Ajout permet d'ajouter des lignes dans un fichier.</span>
+
+<span class="hljs-comment"># Pour écrire dans un fichier, on utilise la fonction 'EcrireFichier'</span>
+<span class="hljs-comment"># Exemple :</span>
+<span class="hljs-attribute">Variable</span> i en Entier
+<span class="hljs-attribute">Ouvrir</span> <span class="hljs-string">"fichier.txt"</span> sur <span class="hljs-number">2</span> en Ecriture
+<span class="hljs-attribute">Pour</span> i &lt;- <span class="hljs-number">1</span> à <span class="hljs-number">3</span>
+  <span class="hljs-attribute">EcrireFichier</span> <span class="hljs-number">2</span>, <span class="hljs-string">"Ligne "</span> &amp; Chaîne(i)
+<span class="hljs-attribute">i</span> Suivant
+<span class="hljs-attribute">Fermer</span> <span class="hljs-number">2</span>
+
+<span class="hljs-comment"># De même en mode Ajout :</span>
+<span class="hljs-attribute">Ouvrir</span> <span class="hljs-string">"fichier.txt"</span> sur <span class="hljs-number">1</span> en Ajout
+<span class="hljs-attribute">EcrireFichier</span> <span class="hljs-number">1</span>, <span class="hljs-string">"Ligne 4"</span>
+<span class="hljs-attribute">Fermer</span> <span class="hljs-number">1</span></code></pre>
+<h3 id="111">Conversion de types de données</h3>
+<pre><code class="hljs language-apache"><span class="hljs-attribute">Cha</span>îne(<span class="hljs-number">123</span>)
+<span class="hljs-comment"># "123"</span>
+
+<span class="hljs-attribute">Cha</span>îne(<span class="hljs-number">1</span>.<span class="hljs-number">23</span>)
+<span class="hljs-comment"># "1.23"</span>
+
+<span class="hljs-attribute">Entier</span>(<span class="hljs-string">"123"</span>)
+<span class="hljs-comment"># 123</span>
+
+<span class="hljs-attribute">Entier</span>(<span class="hljs-number">1</span>.<span class="hljs-number">23</span>)
+<span class="hljs-comment"># 1</span>
+
+<span class="hljs-attribute">Num</span>érique(<span class="hljs-string">"1.23"</span>)
+<span class="hljs-comment"># 1.23</span>
+
+<span class="hljs-attribute">Num</span>érique(<span class="hljs-number">1</span>)
+<span class="hljs-comment"># 1.0</span></code></pre>
+<h3 id="113">Tableaux</h3>
+<pre><code class="hljs language-apache"><span class="hljs-attribute">Tableau</span> t[<span class="hljs-number">7</span>] en Entier
+<span class="hljs-comment"># 'Taille' retourne la taille du tableau donné en paramètre.</span>
+<span class="hljs-attribute">Taille</span>(t)
+<span class="hljs-comment"># 8</span>
+
+<span class="hljs-comment"># Dans le cas d'un tableau multidimensionnel, 'Taille' retourne</span>
+<span class="hljs-comment"># un tableau contenant les tailles de chaque sous-tableau.</span>
+<span class="hljs-attribute">Tableau</span> t2[<span class="hljs-number">7</span>,<span class="hljs-number">7</span>]
+<span class="hljs-attribute">Taille</span>(t2)
+<span class="hljs-comment"># [8, 8]</span></code></pre>
+<h3 id="115">Tables</h3>
+<pre><code class="hljs language-shell">Table t
+  Clef en Chaîne
+  Valeur en Entier
+FinTable
+
+Variable idx en Entier
+
+Pour idx &lt;- 65 à 90
+  t[Car(idx)] &lt;- idx
+idx Suivant
+
+t
+<span class="hljs-meta prompt_"># </span><span class="language-bash">(<span class="hljs-string">"A"</span>: 65, <span class="hljs-string">"B"</span>: 66, <span class="hljs-string">"C"</span>: 67, ..., <span class="hljs-string">"X"</span>: 88, <span class="hljs-string">"Y"</span>: 89, <span class="hljs-string">"Z"</span>: 90)</span>
+<span class="hljs-meta prompt_">
+# </span><span class="language-bash"><span class="hljs-string">'Longueur'</span> ou <span class="hljs-string">'Taille'</span> retourne le nombre d<span class="hljs-string">'éléments dans une table.</span></span>
+Longueur(t)
+<span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">26</span></span>
+Taille(t)
+<span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">26</span></span>
+<span class="hljs-meta prompt_">
+# </span><span class="language-bash"><span class="hljs-string">'</span>Existe<span class="hljs-string">' retourne VRAI si une clef existe dans une table donnée.</span></span>
+Existe(t, "A")
+<span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">VRAI</span></span>
+Existe(t, "0")
+<span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">FAUX</span></span>
+<span class="hljs-meta prompt_">
+# </span><span class="language-bash"><span class="hljs-string">'</span>Clefs<span class="hljs-string">' retourne la liste des clefs.</span></span>
+Clefs(t)
+<span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">["A", "B", "C", ..., "X", "Y", "Z"]</span></span>
+<span class="hljs-meta prompt_">
+# </span><span class="language-bash"><span class="hljs-string">'</span>Valeurs<span class="hljs-string">' retourne la liste des valeurs.</span></span>
+Valeurs(t)
+<span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">[65, 66, 67, ..., 88, 89, 90]</span></span></code></pre>
+<h3 id="117">Autres</h3>
+<pre><code class="hljs language-shell"><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">'Aléa'</span> retourne un `Numérique` entre 0 et 1.</span>
+<span class="hljs-meta prompt_"># </span><span class="language-bash">Exemple :</span>
+<span class="hljs-meta prompt_"># </span><span class="language-bash">Aléa()</span>
+<span class="hljs-meta prompt_"># </span><span class="language-bash">0.54575648</span>
+<span class="hljs-meta prompt_">
+# </span><span class="language-bash"><span class="hljs-string">'Dormir'</span> <span class="hljs-built_in">suspend</span> l<span class="hljs-string">'exécution du programme pendant une durée en</span></span>
+<span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">secondes donnée en paramètre.</span></span>
+<span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">La durée peut être de type Entier ou Numérique.</span></span>
+<span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-string">Exemples :</span></span>
+Dormir(1)
+Dormir(0.5)
+<span class="hljs-meta prompt_">
+# </span><span class="language-bash"><span class="hljs-string">'</span>TempsUnix<span class="hljs-string">' retourne un "unix timestamp" de la date et l'</span>heure courante.</span>
+<span class="hljs-meta prompt_"># </span><span class="language-bash">Exemple :</span>
+TempsUnix()
+<span class="hljs-meta prompt_"># </span><span class="language-bash">1714070687.823757</span></code></pre>
+<h2 id="119">Fonctions</h2>
+<h3 id="120">Déclaration</h3>
+<pre><code class="hljs language-css">Fonction somme(<span class="hljs-selector-tag">a</span>, <span class="hljs-selector-tag">b</span> en Entier) en Entier
+  Retourne <span class="hljs-selector-tag">a</span> + <span class="hljs-selector-tag">b</span>
+FinFonction</code></pre>
+<p>Note : une fonction doit obligatoirement retourner une valeur.</p>
+<h3 id="123">Appel</h3>
+<pre><code class="hljs language-apache"><span class="hljs-attribute">somme</span>(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
+<span class="hljs-comment"># 7</span></code></pre>
+<h3 id="125">Fonctions imbriquées</h3>
+<pre><code class="hljs language-css">Fonction double_produit(<span class="hljs-selector-tag">a</span>, <span class="hljs-selector-tag">b</span> en Entier) en Entier
+  # Double la produit de <span class="hljs-selector-tag">a</span> et <span class="hljs-selector-tag">b</span>
+  Fonction mul(<span class="hljs-selector-tag">a</span>, <span class="hljs-selector-tag">b</span> en Entier) en Entier
+    Retourne <span class="hljs-selector-tag">a</span> * <span class="hljs-selector-tag">b</span>
+  FinFonction
+  Retourne <span class="hljs-number">2</span> * mul(<span class="hljs-selector-tag">a</span>, <span class="hljs-selector-tag">b</span>)
+FinFonction
+
+double_produit(<span class="hljs-number">4</span>, <span class="hljs-number">5</span>)
+# <span class="hljs-number">40</span></code></pre>
+<h3 id="127">Fonctions récursives</h3>
+<pre><code class="hljs language-apache"><span class="hljs-attribute">Fonction</span> factorielle(n en Entier) en Entier
+  <span class="hljs-attribute">Si</span> n = <span class="hljs-number">0</span> Alors
+    <span class="hljs-attribute">Retourne</span> <span class="hljs-number">1</span>
+  <span class="hljs-attribute">FinSi</span>
+  <span class="hljs-attribute">Retourne</span> factorielle(n - <span class="hljs-number">1</span>) * n
+<span class="hljs-attribute">FinFonction</span>
+
+<span class="hljs-attribute">factorielle</span>(<span class="hljs-number">10</span>)
+<span class="hljs-comment"># 3628800</span></code></pre>
+<h2 id="129">Procédures</h2>
+<h3 id="130">Déclaration</h3>
+<pre><code class="hljs language-apache"><span class="hljs-attribute">Proc</span>édure remplir(&amp;t[] en Entier, taille en Entier)
+  <span class="hljs-comment"># Remplit un tableau selon la taille donnée en paramètre</span>
+  <span class="hljs-comment"># avec des nombres entiers aléatoires (entre 1 et 9 inclus).</span>
+  <span class="hljs-attribute">Variable</span> i en Entier
+  <span class="hljs-attribute">Si</span> taille &lt; <span class="hljs-number">1</span> Alors
+    <span class="hljs-attribute">Ecrire</span> <span class="hljs-string">"Erreur : taille invalide ["</span>, taille, <span class="hljs-string">"]"</span>
+  <span class="hljs-attribute">Sinon</span>
+    <span class="hljs-attribute">Redim</span> t[taille - <span class="hljs-number">1</span>]
+    <span class="hljs-attribute">Pour</span> i &lt;- <span class="hljs-number">0</span> à taille - <span class="hljs-number">1</span>
+      <span class="hljs-attribute">t</span>[i] &lt;- Entier(Aléa() * <span class="hljs-number">9</span> + <span class="hljs-number">1</span>)
+    <span class="hljs-attribute">i</span> Suivant
+  <span class="hljs-attribute">FinSi</span>
+<span class="hljs-attribute">FinProc</span>édure</code></pre>
+<h3 id="132">Appel</h3>
+<pre><code class="hljs language-scss">Tableau tab<span class="hljs-selector-attr">[]</span> en Entier
+Variable n en Entier
+n &lt;- <span class="hljs-number">8</span>
+<span class="hljs-built_in">remplir</span>(tab, n)
+# Exemple de résultat :
+# t = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">8</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">3</span>]</code></pre>
+<h3 id="134">Passage de variable par valeur ou par référence</h3>
+<p>Dans l'exemple précédent, le tableau <code>tab[]</code> est passé par référence (notez le <code>&amp;</code> dans <code>&amp;t[]</code>)
+en paramètre de la procédure. C'est-à-dire que la variable <strong><em>globale</em></strong> <code>tab</code> est directement modifiée dans la procédure.</p>
+<p>En ce qui concerne le paramètre <code>taille</code>, au contraire, seule la valeur de <code>n</code>, soit <code>8</code>
+dans notre exemple, est passée. Lors de l'appele à la procédure <code>remplir</code>, une variable <code>taille</code> est créée <strong><em>localement</em></strong> et la valeur <code>8</code> est affectée à <code>taille</code>.
+Enfin, la variable est détruite lorsque l'exécution de la procédure est terminée, laissant
+intacte la variable originale <code>n</code>.</p>
+<pre><code class="hljs language-ini"><span class="hljs-attr">n</span> = <span class="hljs-number">8</span>
+<span class="hljs-comment"># VRAI</span></code></pre>
+<h2 id="138">Structure d'un programme ALGO</h2>
+<h3 id="139">Minimum</h3>
+<ul>
+<li><code>Début</code></li>
+<li>Instructions</li>
+<li><code>Fin</code></li>
+</ul>
+<h3 id="141">Maximum</h3>
+<ul>
+<li>Déclaration de variables, de tableaux, de tables, de structures...</li>
+<li>Déclaration de fonctions, de procédures...</li>
+<li><code>Début</code></li>
+<li>Instructions</li>
+<li><code>Fin</code></li>
+</ul>
+<h2 id="143">Librairies et importation de librairies ALGO</h2>
+<p>Une <strong>librairie</strong> est un fichier qui peut contenir des variables, des structures,
+des tableaux, des tables, des fonctions et des procédures qui pourront être réutilisées dans
+d'autres programmes <strong>ALGO</strong>.</p>
+<p>La structure d'une librairie se présente comme suit :</p>
+<ul>
+<li><code>Librairie</code></li>
+<li>Déclarations</li>
+</ul>
+<p>Au besoin, si des variables doivent être initialisées ou si des ajustements sont
+nécessaires (comme par exemple remplir un tableau, appeler une fonction, etc.),
+on utilise le mot réservé <code>Initialise</code> :</p>
+<ul>
+<li><code>Librairie</code></li>
+<li>Déclarations</li>
+<li><code>Initialise</code></li>
+<li>Instructions</li>
+</ul>
+<h3 id="149">Exemple de librairie et importation dans un programme</h3>
+<pre><code class="hljs language-vbnet">.
+..
+<span class="hljs-keyword">lib</span>/
+|__ librairie.algo
+|
+|_ projet.algo
+|_ utilitaires.algo</code></pre>
+<pre><code class="hljs language-perl"><span class="hljs-comment"># Ma librairie</span>
+Librairie
+
+Variable ma_variable en Chaî<span class="hljs-keyword">ne</span>
+
+Fonction ma_fonction(...) en ...
+  ...
+FinFonction
+
+Procédure ma_procedure(...)
+ ...
+FinProcédure
+
+Initialise
+  ma_variable &lt;- <span class="hljs-string">"Bonjour"</span>
+
+<span class="hljs-comment"># Utilitaires</span>
+Librairie
+
+Fonction date() en Chaî<span class="hljs-keyword">ne</span>
+  ...
+FinFonction
+
+Fonction heure() en Chaî<span class="hljs-keyword">ne</span>
+  ...
+FinFonction
+
+<span class="hljs-comment"># Mon projet</span>
+<span class="hljs-comment"># La fonction 'Importer' permet d'inclure une librairie</span>
+Importer <span class="hljs-string">"lib/librairie"</span>
+
+Début
+  <span class="hljs-comment"># On accède aux membres d'une librairie de la manière suivante :</span>
+  <span class="hljs-comment"># (Les barres obliques du chemin sont remplacées par des tirets de soulignement)</span>
+  librairie:ma_fonction(...)
+  librairie:ma_procedure(...)
+  Ecrire librairie:ma_variable
+Fin
+
+<span class="hljs-comment"># Il est également possible de définir un 'alias' pour une librairie :</span>
+Importer <span class="hljs-string">"utilitaires"</span> Alias utils
+
+Début
+  Ecrire utils:date(), utils:heure()
+Fin</code></pre>
+<h2 id="152">Arguments de la ligne de commande</h2>
+<p>Une variable spéciale nommée <code>_ARGS</code> de type <code>Tableau</code> est disponible pour
+gérer des arguments de la ligne de commande. Ses éléments sont tous du type
+<code>Chaîne</code></p>
+<p>Exemple :</p>
+<pre><code class="hljs language-apache"><span class="hljs-comment"># mon_programme.algo</span>
+<span class="hljs-attribute">Proc</span>édure repete(phrase en Chaîne, nombre en Entier)
+  <span class="hljs-attribute">TantQue</span> nombre &gt; <span class="hljs-number">0</span>
+    <span class="hljs-attribute">Ecrire</span> phrase
+    <span class="hljs-attribute">nombre</span> &lt;- nombre - <span class="hljs-number">1</span>
+  <span class="hljs-attribute">FinTantQue</span>
+<span class="hljs-attribute">FinProc</span>édure
+
+<span class="hljs-attribute">D</span>ébut
+  <span class="hljs-attribute">repete</span>(_ARGS[<span class="hljs-number">1</span>], Entier(_ARGS[<span class="hljs-number">2</span>]))
+<span class="hljs-attribute">Fin</span></code></pre>
+<pre><code class="language-shell hljs"><span class="hljs-meta prompt_">$ </span><span class="language-bash">fralgo mon_programme.algo <span class="hljs-string">"Bonjour tout le monde !"</span> 2</span>
+Bonjour tout le monde !
+Bonjour tout le monde !</code></pre>
+<p>Par défaut <code>_ARGS[0]</code> contient le nom du programme <strong>ALGO</strong> courant. Dans notre exemple,
+<code>_ARGS[0]</code> est égal à <code>mon_programme.algo</code>.</p>
+<h2 id="158">Programmes exécutables</h2>
+<p>Pour rendre un programme <strong>ALGO</strong> exécutable, il suffit d'abord d'y insérer la ligne
+suivante en en-tête :</p>
+<p><code>#! /usr/bin/env fralgo</code></p>
+<p>Puis de changer les permissions du programme comme suit :
+<code>chmod +x mon_programme.algo</code></p>
+<h2 id="162">Désinstallation</h2>
+<p><strong>Êtes-vous sûr de vouloir désinstaller FR-ALGO ?</strong></p>
+<p><code>$ pipx uninstall fralgo</code>
+<br>
+<br>
+<br></p></div><div class="menu-markdown"><img src="nCode%20FR-ALGO_fichiers/menu.png"><div data-id="1" class="titre">FR-ALGO</div><div data-id="3">Installation</div><div data-id="13">Utilisation</div><div data-id="14">&nbsp;&nbsp;&nbsp;&nbsp;fralgo</div><div data-id="18">&nbsp;&nbsp;&nbsp;&nbsp;Exemple</div><div data-id="24">&nbsp;&nbsp;&nbsp;&nbsp;fralgorepl</div><div data-id="36">Différences entre le cours et FR-ALGO</div><div data-id="38">Syntaxe</div><div data-id="43">&nbsp;&nbsp;&nbsp;&nbsp;Commentaires</div><div data-id="47">Types de données</div><div data-id="48">&nbsp;&nbsp;&nbsp;&nbsp;Booléen</div><div data-id="50">&nbsp;&nbsp;&nbsp;&nbsp;Entier</div><div data-id="52">&nbsp;&nbsp;&nbsp;&nbsp;Numérique</div><div data-id="54">&nbsp;&nbsp;&nbsp;&nbsp;Chaîne</div><div data-id="56">&nbsp;&nbsp;&nbsp;&nbsp;Caractère</div><div data-id="64">Variables</div><div data-id="65">&nbsp;&nbsp;&nbsp;&nbsp;Déclaration</div><div data-id="67">&nbsp;&nbsp;&nbsp;&nbsp;Affectation</div><div data-id="69">Tableaux</div><div data-id="70">&nbsp;&nbsp;&nbsp;&nbsp;Déclaration</div><div data-id="72">&nbsp;&nbsp;&nbsp;&nbsp;Affectation</div><div data-id="74">&nbsp;&nbsp;&nbsp;&nbsp;Dimensionnement</div><div data-id="76">&nbsp;&nbsp;&nbsp;&nbsp;Affectation d'un tableau à un autre tableau de même dimension :</div><div data-id="78">Tables</div><div data-id="81">&nbsp;&nbsp;&nbsp;&nbsp;Déclaration</div><div data-id="83">&nbsp;&nbsp;&nbsp;&nbsp;Affectation</div><div data-id="85">Structures</div><div data-id="86">&nbsp;&nbsp;&nbsp;&nbsp;Déclaration</div><div data-id="88">&nbsp;&nbsp;&nbsp;&nbsp;Affectation</div><div data-id="90">Opérateurs</div><div data-id="91">&nbsp;&nbsp;&nbsp;&nbsp;Opérations</div><div data-id="93">&nbsp;&nbsp;&nbsp;&nbsp;Comparaisons</div><div data-id="95">&nbsp;&nbsp;&nbsp;&nbsp;Opérateurs binaires</div><div data-id="97">Lire et Ecrire</div><div data-id="99">Tests</div><div data-id="101">Boucles</div><div data-id="102">&nbsp;&nbsp;&nbsp;&nbsp;TantQue</div><div data-id="104">&nbsp;&nbsp;&nbsp;&nbsp;Pour</div><div data-id="106">Fonctions prédéfinies</div><div data-id="107">&nbsp;&nbsp;&nbsp;&nbsp;Manipulation de chaînes de caractères</div><div data-id="109">&nbsp;&nbsp;&nbsp;&nbsp;Lecture / Ecriture de fichiers texte</div><div data-id="111">&nbsp;&nbsp;&nbsp;&nbsp;Conversion de types de données</div><div data-id="113">&nbsp;&nbsp;&nbsp;&nbsp;Tableaux</div><div data-id="115">&nbsp;&nbsp;&nbsp;&nbsp;Tables</div><div data-id="117">&nbsp;&nbsp;&nbsp;&nbsp;Autres</div><div data-id="119">Fonctions</div><div data-id="120">&nbsp;&nbsp;&nbsp;&nbsp;Déclaration</div><div data-id="123">&nbsp;&nbsp;&nbsp;&nbsp;Appel</div><div data-id="125">&nbsp;&nbsp;&nbsp;&nbsp;Fonctions imbriquées</div><div data-id="127">&nbsp;&nbsp;&nbsp;&nbsp;Fonctions récursives</div><div data-id="129">Procédures</div><div data-id="130">&nbsp;&nbsp;&nbsp;&nbsp;Déclaration</div><div data-id="132">&nbsp;&nbsp;&nbsp;&nbsp;Appel</div><div data-id="134">&nbsp;&nbsp;&nbsp;&nbsp;Passage de variable par valeur ou par référence</div><div data-id="138">Structure d'un programme ALGO</div><div data-id="139">&nbsp;&nbsp;&nbsp;&nbsp;Minimum</div><div data-id="141">&nbsp;&nbsp;&nbsp;&nbsp;Maximum</div><div data-id="143">Librairies et importation de librairies ALGO</div><div data-id="149">&nbsp;&nbsp;&nbsp;&nbsp;Exemple de librairie et importation dans un programme</div><div data-id="152">Arguments de la ligne de commande</div><div data-id="158">Programmes exécutables</div><div data-id="162">Désinstallation</div></div></div><script>hljs.highlightAll();</script><script src="nCode%20FR-ALGO_fichiers/menu-markdown.js"></script><script>document.title = "nCode | " + document.querySelector("h1").textContent;</script></body></html>
